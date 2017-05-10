@@ -1,2 +1,2 @@
-# 316_xie_notes
-Spring 2017 ECE316 Professor Xie's notes
+A digital copy of ECE 316 lecture notes.
+I didn't write it. I attempted to write an identical copy.
