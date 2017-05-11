@@ -248,6 +248,40 @@ Besides, we can consider this problem in another way: Forming a subset from the 
   &\downarrow \\
   &\text{each of them could be chosen for subset or not.}
 \end{align*} \\
-Thus, by the basic principle of counting, there are $2^n$ subsets.
-% TODO Subsection Multinomial Coefficients 1.5
+Thus, by the basic principle of counting, there are $2^n$ subsets. \\ \\
+\subsection{Multinomial Coefficients}
+\underline{Q:} $n$ distinct items are to be divided into $r$ distinct groups of respective sizes $n_1, n_2, \dots n_r\quad(n_1 + n_2 + n_3 + \dots + n_r = n)$. How many different divisions are possible? \\ \\
+\noindent
+To fill the $r$ groups step by step, we not that there are $\binom{n}{n_1}$ possible choices for the first group, $\binom{n-n_1}{n_2}$ possible choices for the second group, \dots and $\binom{n-n_1-n_2\dots-n_{r-1}}{n_r}$ choices for the $r$th group. Thus, it follows from the generalized version of basic principle of counting that there are
+\begin{align*}
+  &\binom{n}{n_1}\binom{n-n_1}{n_2}\binom{n-n_1-n_2}{n_3}\dots\binom{n-n_1-n_2\dots-n_{r-1}}{n_r} \\
+  = &\frac{n!}{(n-n_1)!n_1!}\cdot\frac{(n-n_1)!}{(n-n_1-n_2)!n_2!}\cdot\frac{(n-n_1-n_2)!}{(n-n_1-n_2-n_3)!n_3!}\dots\frac{n-n_1-n_2\dots-n_{r-1}}{0!n_r!} \\
+  = &\frac{n!}{n_1!n_2!n_3!\dots n_r!} \text{ possible divisions}.
+\end{align*} \\
+(Can the answer be $r^n$? No! Consider the specific situation where $n_1 = 1$, for the first item there are $r$ choices, but for the second item, the number of possible choices will depend and may not be $r$ any longer) \clearpage
+\textit{Alternative reasoning:} We can change the problem to how to throw $n$ items into $n$ holes as the following figure: \\
+\includegraphics[scale=0.25]{1-4} \\
+Each permutation can be regarded as a way to group them, but if we take $n!$ as the total number of possible ways to group them, we have over counted, because it doesn't matter how we permute the items in the same group among themselves. \\
+Thus, there are $\frac{n!}{n_1!n_2!\dots n_r!}$ possible divisions. \\ \\
+\noindent
+Still, we can take this problem as how to assign $n$ labels to $n$ items. Of the $n$ labels, $n_1$ are alike, $n_2$ are alike, \dots $n_r$ are alike. If one item receives the $k$-th  label, then it's contained by the $k$-th group. \\
+\vspace{0.2cm}
+
+\includegraphics[scale=0.7]{1-5} \\
+
+\vspace{0.2cm}
+
+Notation: \begin{equation*}\frac{n!}{n_1!n_2!\dots n_r!} = \binom{n}{n_1,n_2,\dots n_r}\end{equation*} \\ \\
+\noindent
+\textbf{Example:} 10 children are to be divided into 2 basketball teams, each of 5 to play against each other, how many different divisions? \\
+\begin{equation*}
+  \frac{\frac{10!}{5!5!}}{2}, \text{(There is a 2 in the denominator because the order of the two teams is irrelevant.)}
+\end{equation*} \\
+Recall the binomial theorem, which is \begin{equation*}
+  (x+y)^n = \sum_{k=0}^n \binom{n}{k} x^k \cdot y^{n-k}
+\end{equation*} \\
+Accordingly, the multinomial theorem is \begin{equation*}
+  (x_1+x_2+\dots x_r)^n = \sum_{n_1+n_2+\dots n_r = n}\binom{n}{n_1,n_2,\dots n_r}x_1^{n_1} x_2^{n_2} \dots x_r^{n_r}
+\end{equation*}
+
 \end{document}
